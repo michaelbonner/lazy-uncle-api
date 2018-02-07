@@ -521,16 +521,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.5.33",
+            "version": "v5.5.34",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "ef7880e665390f999f4def7c9f78133636f973cf"
+                "reference": "1de7c0aec13eadbdddc2d1ba4019b064b2c6b966"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/ef7880e665390f999f4def7c9f78133636f973cf",
-                "reference": "ef7880e665390f999f4def7c9f78133636f973cf",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/1de7c0aec13eadbdddc2d1ba4019b064b2c6b966",
+                "reference": "1de7c0aec13eadbdddc2d1ba4019b064b2c6b966",
                 "shasum": ""
             },
             "require": {
@@ -651,7 +651,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2018-01-30T15:06:13+00:00"
+            "time": "2018-02-06T15:36:55+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -2521,12 +2521,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/tymondesigns/jwt-auth.git",
-                "reference": "260483906f6e7c7192371e47c773126b5962e814"
+                "reference": "43c5b6f60542f92a483d890637278c58b3952425"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tymondesigns/jwt-auth/zipball/260483906f6e7c7192371e47c773126b5962e814",
-                "reference": "260483906f6e7c7192371e47c773126b5962e814",
+                "url": "https://api.github.com/repos/tymondesigns/jwt-auth/zipball/43c5b6f60542f92a483d890637278c58b3952425",
+                "reference": "43c5b6f60542f92a483d890637278c58b3952425",
                 "shasum": ""
             },
             "require": {
@@ -2588,7 +2588,7 @@
                 "jwt",
                 "laravel"
             ],
-            "time": "2018-01-23 20:46:12"
+            "time": "2018-02-06T09:20:09+00:00"
         },
         {
             "name": "vlucas/phpdotenv",

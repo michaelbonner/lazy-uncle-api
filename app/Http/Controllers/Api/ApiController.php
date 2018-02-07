@@ -10,4 +10,12 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 class ApiController extends BaseController
 {
 	use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+	protected function outputSuccess( $data, $status_code = 200 ){
+		return response()->json($data, $status_code);
+	}
+	
+	protected function outputError( $data, $status_code = 401 ){
+		return response()->json($data, $status_code);
+	}
 }

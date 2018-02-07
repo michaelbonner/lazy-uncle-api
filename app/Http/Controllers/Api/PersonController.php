@@ -11,17 +11,17 @@ class PersonController extends ApiController
 {
 	public function index()
 	{
-		return Auth::user()->people;
+		return auth('api')->user()->people ?? [];
 	}
 
 	public function show($id)
 	{
-		return Auth::user()->people()->findOrFail($id);
+		return auth('api')->user()->people()->findOrFail($id);
 	}
 
 	public function store(StorePersonRequest $request)
 	{
-		return Auth::user()->people()->create([
+		return auth('api')->user()->people()->create([
 			'name' => $request->name,
 			'birthday' => $request->birthday,
 			'parent' => $request->parent,
@@ -30,7 +30,7 @@ class PersonController extends ApiController
 
 	public function update(Request $request)
 	{
-		$person = Auth::user()->people()->findOrFail($request->id);
+		$person = auth('api')->user()->people()->findOrFail($request->id);
 		$person->name = $request->name ?? $person->name;
 		$person->birthday = $request->birthday ?? $person->birthday;
 		$person->parent = $request->parent ?? $person->parent;
@@ -40,6 +40,6 @@ class PersonController extends ApiController
 
 	public function destroy($id)
 	{
-		return Auth::user()->people()->findOrFail($id)->delete();
+		return auth('api')->user()->people()->findOrFail($id)->delete();
 	}
 }
