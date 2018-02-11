@@ -49,6 +49,7 @@ Route::group([
 Route::group([
 	'prefix' => 'person',
 	'namespace' => 'Api',
+	'middleware' => 'auth:api',
 ], function () {
 	Route::post('/', [
 		'as' => 'api.person.store',
