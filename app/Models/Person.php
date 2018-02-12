@@ -11,7 +11,10 @@ class Person extends Model
 	protected $dates = [
 		'created_at',
 		'updated_at',
-		'birthday',
+	];
+
+	protected $casts = [
+		'birthday' => 'date:m-d-Y',
 	];
 
 	public function user()
