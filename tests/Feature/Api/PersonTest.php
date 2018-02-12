@@ -27,7 +27,7 @@ class PersonTest extends TestCase
 		$person = factory(Person::class)->make();
 
 		$request = $this->json('POST', route('api.person.store'), $person->toArray());
-		$request->assertStatus(200);
+		$request->assertStatus(201);
 		$request->assertJsonStructure(['name', 'birthday', 'parent', 'user_id', 'updated_at', 'created_at', 'id', ]);
 	}
 
