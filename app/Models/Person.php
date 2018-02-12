@@ -13,10 +13,6 @@ class Person extends Model
 		'updated_at',
 	];
 
-	protected $casts = [
-		'birthday' => 'date:m-d-Y',
-	];
-
 	public function user()
 	{
 		return $this->belongsTo(User::class);
