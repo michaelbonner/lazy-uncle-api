@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Feature\Api;
 
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
@@ -28,7 +28,7 @@ class PersonTest extends TestCase
 
 		$request = $this->json('POST', route('api.person.store'), $person->toArray());
 		$request->assertStatus(201);
-		$request->assertJsonStructure(['name', 'birthday', 'parent', 'user_id', 'updated_at', 'created_at', 'id', ]);
+		$request->assertJsonStructure(['name', 'birthday', 'parent', 'user_id', 'updated_at', 'created_at', 'id',]);
 	}
 
 	/** @test */
@@ -40,7 +40,7 @@ class PersonTest extends TestCase
 
 		$request = $this->json('GET', route('api.person.show', ['id' => $person->id]));
 		$request->assertStatus(200);
-		$request->assertJsonStructure(['name', 'birthday', 'parent', 'user_id', 'updated_at', 'created_at', 'id', ]);
+		$request->assertJsonStructure(['name', 'birthday', 'parent', 'user_id', 'updated_at', 'created_at', 'id',]);
 	}
 
 	/** @test */
@@ -52,7 +52,7 @@ class PersonTest extends TestCase
 
 		$request = $this->json('GET', route('api.person.index'));
 		$request->assertStatus(200);
-		$request->assertJsonStructure([['name', 'birthday', 'parent', 'user_id', 'updated_at', 'created_at', 'id', ]]);
+		$request->assertJsonStructure([['name', 'birthday', 'parent', 'user_id', 'updated_at', 'created_at', 'id',]]);
 	}
 
 	/** @test */

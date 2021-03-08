@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Feature\Api;
 
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
@@ -55,7 +55,7 @@ class UserTest extends TestCase
 		$request = $this->json('POST', route('api.user.store'), [
 			'name' => 'test',
 			'email' => 'email@example.com',
-			]);
+		]);
 		$request->assertStatus(422);
 		$request->assertJsonStructure(['message', 'errors']);
 		$request->assertSee('The password field is required.');

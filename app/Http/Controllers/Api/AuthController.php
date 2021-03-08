@@ -23,12 +23,17 @@ class AuthController extends ApiController
 	 */
 	public function login()
 	{
-		$credentials = request(['email', 'password']);
+		$credentials = request([
+			'email', 'password'
+		]);
 
-		$token = auth('api')->attempt($credentials);
-		
+		$token = auth('api')
+			->attempt($credentials);
+
 		if (!$token) {
-			return $this->outputError(['error' => 'Unauthorized']);
+			return $this->outputError([
+				'error' => 'Unauthorized'
+			]);
 		}
 
 		return $this->respondWithToken($token);
@@ -62,9 +67,9 @@ class AuthController extends ApiController
 	 * @return \Illuminate\Http\JsonResponse
 	 */
 	public function refresh()
-    {
-        return $this->respondWithToken(auth('api')->refresh());
-    }
+	{
+		return $this->respondWithToken(auth('api')->refresh());
+	}
 
 	/**
 	 * Get the token array structure.
@@ -74,11 +79,11 @@ class AuthController extends ApiController
 	 * @return \Illuminate\Http\JsonResponse
 	 */
 	protected function respondWithToken($token)
-    {
-        return response()->json([
-            'access_token' => $token,
-            'token_type' => 'bearer',
-            'expires_in' => auth('api')->factory()->getTTL() * 60
-        ]);
-    }
+	{
+		return response()->json([
+			'access_token' => $token,
+			'token_type' => 'bearer',
+			'expires_in' => auth('api')->factory()->getTTL() * 60
+		]);
+	}
 }
