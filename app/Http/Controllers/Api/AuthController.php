@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class AuthController extends ApiController
@@ -21,22 +22,15 @@ class AuthController extends ApiController
 	 *
 	 * @return \Illuminate\Http\JsonResponse
 	 */
-	public function login()
+	public function login(Request $request)
 	{
-		$credentials = request([
-			'email', 'password'
-		]);
-
-		$token = auth('api')
-			->attempt($credentials);
-
-		if (!$token) {
-			return $this->outputError([
-				'error' => 'Unauthorized'
-			]);
+		if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+			$user = $request->user();
+			$user->token = $user->createToken('lazyUncle')->accessToken;
+			return $this->outputSuccess($user);
+		} else {
+			return response()->json(['error' => 'Unauthorized'], 401);
 		}
-
-		return $this->respondWithToken($token);
 	}
 
 	/**
