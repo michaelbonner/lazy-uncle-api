@@ -26,6 +26,7 @@ class UserController extends ApiController
 		])) {
 			$user = $request->user();
 			$user->token = $user->createToken('Leash')->accessToken;
+			$user->access_token = $user->createToken('Leash')->accessToken;
 			return $this->outputSuccess($user);
 		} else {
 			return response()
