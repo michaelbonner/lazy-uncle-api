@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -15,6 +16,17 @@ class UserController extends ApiController
 	public function show()
 	{
 		return Auth::user();
+	}
+
+	public function login(Request $request)
+	{
+		if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+			$user = $request->user();
+			$user->token = $user->createToken('Leash')->accessToken;
+			return $this->outputSuccess($user);
+		} else {
+			return response()->json(['error' => 'Unauthorized'], 401);
+		}
 	}
 
 	/**

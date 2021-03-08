@@ -30,7 +30,7 @@ Route::group([
 ], function () {
 	Route::post('login', [
 		'as' => 'api.auth.login',
-		'uses' => 'AuthController@login',
+		'uses' => 'UserController@login',
 	]);
 	Route::post('logout', [
 		'as' => 'api.auth.logout',
